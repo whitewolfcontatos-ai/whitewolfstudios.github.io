@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>WhiteWolf Studios — Game Dev Services</title>
+<meta name="description" content="Trailers, playable Unity prototypes, web ports and AI-assisted 3D assets for indie game teams. Fixed scope, fixed price, delivered in days.">
+<meta property="og:title" content="WhiteWolf Studios — Game Dev Services">
+<meta property="og:description" content="Trailers, playable prototypes, web ports and 3D assets for indie teams. Delivered in days, not months.">
+<meta property="og:image" content="assets/prisma-climb.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Dark, single-look landing: hero → work → packages → process → AI note → contact */
+:root{
+  --bg:#0C1118; --bg-2:#121A24; --card:#16202C; --line:#26323F;
+  --ink:#EAF0F6; --muted:#9AA8B8; --accent:#F0A63C; --accent-ink:#1A1206; --violet:#A58BF5;
+  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--f-body)}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.02em;line-height:1.02;margin:0;text-wrap:balance}
+h2{font-size:clamp(30px,4.4vw,44px);font-weight:800}
+.kicker{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.lead{color:var(--muted);max-width:60ch;margin:0}
+section{padding-block:72px}
+.sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgb(12 17 24 / .88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:700;font-size:20px;letter-spacing:.04em;text-transform:uppercase}
+.logo svg{width:30px;height:30px}
+.nav-links{display:flex;gap:22px;font-size:14px;color:var(--muted)}
+.nav-links a{text-decoration:none}
+.nav-links a:hover{color:var(--ink)}
+@media (max-width:640px){.nav-links{display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--muted)}
+.btn-sm{padding:9px 16px;font-size:14px}
+
+/* hero */
+.hero{padding-block:64px 56px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(44px,7vw,84px);font-weight:800}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{font-size:18px;color:var(--muted);max-width:52ch;margin:20px 0 28px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:28px;font-size:14px;color:var(--muted)}
+.facts b{color:var(--ink);font-weight:600}
+.hero-media{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1280/712;background:var(--bg-2)}
+.hero-media video{width:100%;height:100%;object-fit:cover}
+.hero-media .tag{position:absolute;left:12px;bottom:12px;background:rgb(12 17 24 / .8);border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-size:12px;color:var(--muted)}
+
+/* work */
+.work{background:var(--bg-2);border-block:1px solid var(--line)}
+.work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:900px){.work-grid{grid-template-columns:1fr}}
+.work-card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.work-media{background:#000;aspect-ratio:4/5;position:relative}
+.work-media video,.work-media img{width:100%;height:100%;object-fit:cover}
+.work-media.contain video{object-fit:contain}
+.pair{display:grid;grid-template-columns:1fr 1fr;height:100%}
+.pair figure{margin:0;position:relative;overflow:hidden;background:#d9dde2}
+.pair figure:last-child{background:#6d6f73}
+.pair img{width:100%;height:100%;object-fit:cover}
+.pair figcaption{position:absolute;left:8px;top:8px;background:rgb(12 17 24 / .82);color:var(--ink);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:4px}
+.work-body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.work-body h3{font-size:22px;font-weight:700}
+.work-body p{margin:0;color:var(--muted);font-size:14.5px}
+.work-body .pkg{margin-top:auto;padding-top:8px;font-size:13px;color:var(--accent);font-weight:600}
+
+/* packages */
+.pk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.pk{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:12px}
+.pk.feat{border-color:var(--accent)}
+.pk-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.pk h3{font-size:26px;font-weight:700}
+.badge{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent);padding:3px 8px;border-radius:4px;white-space:nowrap}
+.price{font-family:var(--f-display);font-weight:800;font-size:40px;line-height:1}
+.price small{font-family:var(--f-body);font-size:13px;font-weight:500;color:var(--muted);margin-left:4px}
+.pk ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px;display:flex;flex-direction:column;gap:4px}
+.pk .time{font-size:13px;color:var(--ink);border-top:1px solid var(--line);padding-top:12px;margin-top:auto;display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.terms{margin-top:22px;font-size:14px;color:var(--muted)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;counter-reset:s}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.step{border-top:3px solid var(--accent);padding-top:14px}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--f-display);font-weight:800;font-size:28px;color:var(--accent)}
+.step h3{font-size:20px;margin:6px 0}
+.step p{margin:0;color:var(--muted);font-size:14.5px}
+
+/* ai note */
+.ai{background:var(--bg-2);border-block:1px solid var(--line)}
+.ai-box{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:start}
+@media (max-width:860px){.ai-box{grid-template-columns:1fr}}
+.ai-list{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.ai-list li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:14.5px;color:var(--muted)}
+.ai-list b{color:var(--ink);display:block;margin-bottom:2px}
+
+/* contact */
+.contact{text-align:left}
+.contact-box{background:linear-gradient(135deg,var(--card),var(--bg-2));border:1px solid var(--line);border-radius:16px;padding:clamp(24px,5vw,48px);display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+@media (max-width:860px){.contact-box{grid-template-columns:1fr}}
+.contact-box p{color:var(--muted);margin:14px 0 0;max-width:52ch}
+.contact-links{display:flex;flex-direction:column;gap:10px}
+.mail{font-family:var(--f-display);font-size:26px;font-weight:700;letter-spacing:.02em;word-break:break-all;user-select:all}
+footer{padding-block:28px calc(28px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="WhiteWolf Studios home">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="1" y="1" width="46" height="46" rx="10" fill="#EAF0F6"/><path d="M10 13 L17 9 L21 18 L27 18 L31 9 L38 13 L36 26 L29 38 L24 41 L19 38 L12 26 Z" fill="#0C1118"/><path d="M17.5 24 L21.5 25.5 L20 27 Z M30.5 24 L26.5 25.5 L28 27 Z" fill="#F0A63C"/><path d="M22 33 L26 33 L24 36 Z" fill="#EAF0F6"/></svg>
+      WhiteWolf Studios
+    </a>
+    <div class="nav-links"><a href="#work">Work</a><a href="#packages">Packages</a><a href="#process">How it works</a><a href="#contact">Contact</a></div>
+    <a class="btn btn-primary btn-sm" href="#contact">Get a quote</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Game dev services for indie teams</div>
+      <h1 style="margin-top:12px">Trailers, prototypes &amp; 3D assets. <em>In days, not months.</em></h1>
+      <p>We are a small game studio building our own action game in Unreal Engine 5, with a pipeline that ships fast. We put that same pipeline to work for your game: fixed scope, fixed price, one revision round included.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#packages">See packages &amp; prices</a>
+        <a class="btn btn-ghost" href="#work">See our work</a>
+      </div>
+      <div class="facts">
+        <span><b>Unreal Engine 5</b> &amp; <b>Unity 6</b></span>
+        <span>Based in <b>Italy</b> · EU VAT invoices</span>
+        <span>Replies within <b>24 h</b></span>
+      </div>
+    </div>
+    <div class="hero-media">
+      <video src="assets/prisma-climb.mp4" poster="assets/prisma-climb.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Gameplay clip from our game CÓDIGO PRISMA: the hero climbs a fire escape and flips onto the roof"></video>
+      <span class="tag">Our game: CÓDIGO PRISMA (UE5, in development)</span>
+    </div>
+  </div>
+</header>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Work</div>
+      <h2>Made in our own studio</h2>
+      <p class="lead">Everything below comes from CÓDIGO PRISMA, the third-person action game we are building. It is the same work we deliver to clients.</p>
+    </div>
+    <div class="work-grid">
+      <article class="work-card">
+        <div class="work-media contain">
+          <video src="assets/reel-before-after.mp4" poster="assets/reel-before-after.jpg" muted loop playsinline controls preload="none" aria-label="Vertical reel: the same game eight days apart, from grey prototype to finished city"></video>
+        </div>
+        <div class="work-body">
+          <h3>Before × after reel</h3>
+          <p>18-second vertical reel: grey prototype to rainy city with hit effects. Our best-performing post format (on-screen text in Portuguese for our home audience; yours can be in any language).</p>
+          <div class="pkg">→ Reel Pack ×4 · Trailer Sprint</div>
+        </div>
+      </article>
+      <article class="work-card">
+        <div class="work-media">
+          <video src="assets/prisma-climb.mp4" poster="assets/prisma-climb.jpg" muted loop playsinline controls preload="none" aria-label="Gameplay clip: ladder climb and roof flip animation"></video>
+        </div>
+        <div class="work-body">
+          <h3>Gameplay feature, end to end</h3>
+          <p>Ladder climb with a flip onto the roof: animation authored in Blender by script, wired into Unreal Engine 5 gameplay, captured as a clean clip for social media.</p>
+          <div class="pkg">→ Playable Prototype · Trailer Sprint</div>
+        </div>
+      </article>
+      <article class="work-card">
+        <div class="work-media">
+          <div class="pair">
+            <figure><img src="assets/concept.jpg" alt="AI-assisted concept image of a hooded street thug in a puffer vest" loading="lazy"><figcaption>Concept</figcaption></figure>
+            <figure><img src="assets/model-3d.jpg" alt="The same character as a textured 3D model, rendered in Blender" loading="lazy"><figcaption>3D model</figcaption></figure>
+          </div>
+        </div>
+        <div class="work-body">
+          <h3>Concept to game-ready 3D</h3>
+          <p>An enemy character from concept to textured 3D model: AI-assisted image and mesh generation, then cleanup, rigging and export in Blender. Now fighting in-game.</p>
+          <div class="pkg">→ AI Asset Pack</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Packages</div>
+      <h2>Fixed scope. Fixed price.</h2>
+      <p class="lead">Prices in euros, excluding VAT where it applies. Need something in between? Tell us what you have and we'll quote it within 24 hours.</p>
+    </div>
+    <div class="pk-grid">
+      <article class="pk feat">
+        <div class="pk-top"><h3>Trailer Sprint</h3><span class="badge">Best place to start</span></div>
+        <div class="price">€490<small>30–60 s</small></div>
+        <ul><li>Cut from your footage (or we capture it)</li><li>16:9 for Steam/YouTube + 9:16 for socials</li><li>Title cards, pacing to music, 1 revision</li><li>60–90 s version: €790</li></ul>
+        <div class="time"><span>5–7 days</span><a class="btn btn-ghost btn-sm" href="#contact" data-pkg="Trailer Sprint">Ask for this</a></div>
+      </article>
+      <article class="pk">
+        <div class="pk-top"><h3>Reel Pack ×4</h3></div>
+        <div class="price">€690</div>
+        <ul><li>4 vertical videos, 20–40 s each</li><li>Devlog, before × after, feature spotlight</li><li>Captions written for each post</li></ul>
+        <div class="time"><span>7 days</span><a class="btn btn-ghost btn-sm" href="#contact" data-pkg="Reel Pack x4">Ask for this</a></div>
+      </article>
+      <article class="pk">
+        <div class="pk-top"><h3>Playable Prototype</h3></div>
+        <div class="price">from €1,900</div>
+        <ul><li>One core mechanic, playable in the browser (Unity WebGL)</li><li>Hosted on itch.io for your playtesters</li><li>Scope agreed in writing up front</li></ul>
+        <div class="time"><span>1–2 weeks</span><a class="btn btn-ghost btn-sm" href="#contact" data-pkg="Playable Prototype">Ask for this</a></div>
+      </article>
+      <article class="pk">
+        <div class="pk-top"><h3>Web Port</h3></div>
+        <div class="price">€800–1,500</div>
+        <ul><li>Unity build for the web, to a target download size</li><li>Tested in Chrome, Firefox and mobile browsers</li><li>Ready for itch.io and web game portals</li></ul>
+        <div class="time"><span>3–7 days</span><a class="btn btn-ghost btn-sm" href="#contact" data-pkg="Web Port">Ask for this</a></div>
+      </article>
+      <article class="pk">
+        <div class="pk-top"><h3>AI Asset Pack</h3></div>
+        <div class="price">€690<small>10 props</small></div>
+        <ul><li>10 game-ready 3D props from your concepts or brief</li><li>Cleaned in Blender, delivered as FBX + GLB</li><li>AI use disclosed, for your store page</li></ul>
+        <div class="time"><span>5–7 days</span><a class="btn btn-ghost btn-sm" href="#contact" data-pkg="AI Asset Pack">Ask for this</a></div>
+      </article>
+    </div>
+    <p class="terms">All packages: 50% upfront, 50% on delivery · one revision round included · short written agreement · invoice from our Italian VAT number.</p>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">How it works</div>
+      <h2>From message to delivery</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Brief</h3><p>Send a link to your game and what you need. A few lines is enough.</p></div>
+      <div class="step"><h3>Fixed quote</h3><p>Within 24 h you get the scope, price and delivery date in writing.</p></div>
+      <div class="step"><h3>50% upfront</h3><p>We start as soon as the first half is paid and the agreement is signed.</p></div>
+      <div class="step"><h3>Delivery</h3><p>You review, we do one round of changes, you pay the rest and keep everything.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="ai" id="ai">
+  <div class="wrap ai-box">
+    <div class="sec-head" style="margin:0">
+      <div class="kicker">Straight answer</div>
+      <h2>Yes, we use AI tools</h2>
+      <p class="lead">It is how a small studio delivers in days. We tell you exactly where, before you pay, so you can decide and disclose it on your store page.</p>
+    </div>
+    <ul class="ai-list">
+      <li><b>Where AI is used</b>Concept images, first-pass 3D meshes and placeholder voice lines.</li>
+      <li><b>Where it is not</b>Editing, gameplay code, animation timing, cleanup and every final decision are done by us.</li>
+      <li><b>Prefer no AI?</b>Say so in your brief. Trailers, reels, prototypes and web ports can be done without generated assets.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <div>
+        <div class="kicker">Contact</div>
+        <h2 style="margin-top:10px">Tell us about your game</h2>
+        <p id="contactHint">Send a link to your game, the package you are interested in and your deadline. You will get a fixed quote within 24 hours.</p>
+      </div>
+      <div class="contact-links" id="contactLinks">
+        <span class="mail" id="mail"></span>
+        <a class="btn btn-primary" id="mailBtn" href="#contact">Email us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> WhiteWolf Studios · Italy</span>
+    <span id="social"></span>
+  </div>
+</footer>
+
+<script>
+/* ======= EDITAR AQUI antes de publicar ======= */
+const EMAIL = "whitewolfcontatos@gmail.com";
+const INSTAGRAM = "https://www.instagram.com/white.wolfstudios";  // link completo do perfil, ex.: "https://www.instagram.com/white.wolfstudios"
+const ITCH = "https://white-wolf-studio.itch.io";       // link do perfil do itch.io, ex.: "https://whitewolfstudios.itch.io"
+/* ============================================ */
+document.getElementById("yr").textContent = new Date().getFullYear();
+const mail = document.getElementById("mail"), btn = document.getElementById("mailBtn");
+let pkg = "";
+function setMail(){
+  if (!EMAIL){ mail.textContent = "Email coming soon"; btn.hidden = true; return; }
+  mail.textContent = EMAIL;
+  const subject = "Quote request" + (pkg ? ": " + pkg : "");
+  btn.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject);
+  btn.textContent = pkg ? "Email us about " + pkg : "Email us";
+}
+setMail();
+document.querySelectorAll("[data-pkg]").forEach(a => a.addEventListener("click", () => { pkg = a.dataset.pkg; setMail(); }));
+const s = [];
+if (INSTAGRAM) s.push('<a href="' + INSTAGRAM + '" target="_blank" rel="noopener">Instagram</a>');
+if (ITCH) s.push('<a href="' + ITCH + '" target="_blank" rel="noopener">itch.io</a>');
+document.getElementById("social").innerHTML = s.join(" · ");
+/* play gallery videos only while visible */
+if ("IntersectionObserver" in window){
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target; if (v.closest(".hero-media")) return;
+    if (e.isIntersecting){ v.preload = "auto"; v.play().catch(()=>{}); } else v.pause();
+  }), {threshold:.5});
+  document.querySelectorAll(".work video").forEach(v => io.observe(v));
+}
+</script>
+</body>
+</html>
